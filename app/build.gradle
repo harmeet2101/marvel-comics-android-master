@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+apply from: "$rootProject.projectDir/config/quality/quality.gradle"
+apply from: "$rootProject.projectDir/config/dependencies.gradle"
+apply from: "$rootProject.projectDir/config/secrets.gradle"
+
+def sdk = ext.sdk
+def libraries = ext.libraries
+def secrets = ext.secrets
+
+android {
+    compileSdkVersion sdk.compileSdkVersion
+    buildToolsVersion sdk.buildToolsVersion
+    dataBinding.enabled = true
+    defaultConfig {
+        applicationId "com.segunfamisa.sample.comics"
+        minSdkVersion sdk.minSdkVersion
+        targetSdkVersion sdk.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /*buildConfigField("String", "PUBLIC_API_KEY", secrets.publicKey)
+        buildConfigField("String", "PRIVATE_API_KEY", secrets.privateKey)*/
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        mock {
+            applicationIdSuffix ".mock"
+        }
+
+        prod {}
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //  support libraries
+    compile "com.android.support:appcompat-v7:$libraries.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$libraries.supportLibraryVersion"
+    compile "com.android.support:design:$libraries.supportLibraryVersion"
+
+    // dagger
+    compile "com.google.dagger:dagger-android:$libraries.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$libraries.daggerVersion"
+
+    // networking
+    compile "com.squareup.retrofit2:retrofit:$libraries.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$libraries.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$libraries.retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$libraries.okHttpLoggingInterceptorVersion"
+
+    // gson
+    compile "com.google.code.gson:gson:$libraries.gsonVersion"
+
+    // glide
+    compile "com.github.bumptech.glide:glide:$libraries.glideVersion"
+
+    // rx android
+    compile "io.reactivex.rxjava2:rxandroid:$libraries.rxAndroidVersion"
+
+    // test libraries
+    testCompile "junit:junit:$libraries.jUnitVersion"
+    testCompile "com.squareup.okhttp3:mockwebserver:$libraries.mockWebserverVersion"
+    testCompile "org.mockito:mockito-core:$libraries.mockitoVersion"
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$libraries.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+}

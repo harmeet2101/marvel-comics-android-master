@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ComicDetailsBinding" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- content -->
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- app bar -->
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <!-- comic image -->
+                    <ImageView
+                        android:id="@+id/comic_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/comic_details_header_height"
+                        android:scaleType="centerCrop"
+                        app:layout_collapseMode="parallax"
+                        android:contentDescription="@string/content_desc_comic_image"/>
+
+                    <!-- toolbar -->
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+                </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scroll_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/gutter_width">
+
+                    <!-- Title Prompt -->
+                    <TextView
+                        android:id="@+id/comic_title_prompt"
+                        style="@style/TextAppearance.Detail.Header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details_prompt_title"
+                        tools:text="Title" />
+
+                    <!-- Title Text -->
+                    <TextView
+                        android:id="@+id/comic_title"
+                        style="@style/TextAppearance.Detail.Content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/margin_view"
+                        tools:text="X Men" />
+
+                    <!-- Description Prompt -->
+                    <TextView
+                        android:id="@+id/comic_description_prompt"
+                        style="@style/TextAppearance.Detail.Header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details_prompt_description" />
+
+                    <!-- Description Text -->
+                    <TextView
+                        android:id="@+id/comic_description"
+                        style="@style/TextAppearance.Detail.Content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:text="Long description goes here" />
+
+                    <!-- Page count Prompt -->
+                    <TextView
+                        android:id="@+id/comic_page_count_prompt"
+                        style="@style/TextAppearance.Detail.Header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_view"
+                        android:text="@string/details_prompt_page_count" />
+
+                    <!-- Page count Text -->
+                    <TextView
+                        android:id="@+id/comic_page_count"
+                        style="@style/TextAppearance.Detail.Content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:text="12" />
+
+                    <!-- prices prompt -->
+                    <TextView
+                        android:id="@+id/comic_prices_prompt"
+                        style="@style/TextAppearance.Detail.Header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_view"
+                        android:text="@string/details_price_prompt" />
+
+                    <!-- prices content -->
+                    <LinearLayout
+                        android:id="@+id/comic_prices"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="?android:listDivider"
+                        android:orientation="vertical" />
+
+                    <!-- authors prompt -->
+                    <TextView
+                        android:id="@+id/comic_authors_prompt"
+                        style="@style/TextAppearance.Detail.Header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_view"
+                        android:text="@string/details_prompt_authors" />
+
+                    <!-- authors content -->
+                    <LinearLayout
+                        android:id="@+id/comic_authors"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="?android:listDivider"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <!-- progress -->
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+</layout>

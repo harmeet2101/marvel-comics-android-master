@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- gutter width -->
+    <dimen name="gutter_width">16dp</dimen>
+
+    <!-- padding -->
+    <dimen name="small_padding">4dp</dimen>
+    <dimen name="textview_padding">8dp</dimen>
+    <dimen name="margin_view">8dp</dimen>
+
+    <!-- comic list item -->
+    <dimen name="list_item_image_size">72dp</dimen>
+    <dimen name="list_item_title_text_size">18sp</dimen>
+
+    <dimen name="detail_header_text_size">17sp</dimen>
+    <dimen name="detail_content_text_size">17sp</dimen>
+
+    <dimen name="comic_details_header_height">160dp</dimen>
+</resources>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Marvel Comics</string>
+
+    <string name="error_action_retry">Retry</string>
+
+    <!-- menu items -->
+    <string name="menu_budget">Budget</string>
+
+    <!-- details screen -->
+    <string name="details_prompt_title">Title</string>
+    <string name="details_prompt_description">Description</string>
+    <string name="details_prompt_authors">Authors</string>
+    <string name="details_price_prompt">Price</string>
+    <string name="details_prompt_page_count">Pages</string>
+
+    <string name="content_desc_comic_image">Comic image</string>
+
+    <!-- budget screen -->
+    <string name="hint_budget">What\'s your budget in $</string>
+    <string name="btn_text_calculate">Calculate</string>
+    <string name="budget_prompt_page_count">With $%1$s you can enjoy %2$d pages of comic!</string>
+    <string name="title_budget">Find comics for your budget!</string>
+    <string name="error_no_match">Sorry, no matching comics!</string>
+
+    <!-- error messages -->
+    <string name="error_msg_empty_articles">Oops, no articles now. Check back later</string>
+    <string name="error_msg_server">Something seems to be wrong with the server</string>
+    <string name="error_msg_network">Please check your connection</string>
+    <string name="error_msg_network_generic">Well, something went wrong :(</string>
+
+</resources>
